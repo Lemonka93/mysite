@@ -73,4 +73,13 @@ class Planet extends Eloquent {
     public function author() {
         return $this->belongsTo('User', 'user_id');
     }
+
+
+    public function isAuthor()
+    {
+        if($this->author == Auth::user()) {
+            return true;
+        }
+        return false;
+    }
 }
