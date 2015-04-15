@@ -19,3 +19,8 @@ Route::get('/', array(
 Route::resource('planets', 'PlanetsController');
 Route::controller('users', 'UsersController');
 Route::controller('password', 'RemindersController');
+
+Route::get('/language/{locale}', [
+    'as'=>'laguage',
+    'uses'=>'HomeController@Language',
+]);

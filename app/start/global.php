@@ -78,4 +78,6 @@ App::down(function()
 |
 */
 
+App::setLocale(LanguageHelper::getCurrent()['locale']);
+
 require app_path().'/filters.php';
