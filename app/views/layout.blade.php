@@ -10,19 +10,27 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <!-- jQuery & jQuery UI -->
+
+        <!--script src="http://code.jquery.com/jquery-1.11.0.min.js"></script-->
         <script src="/js/jquery-1.11.0.min.js"></script>
+        <!--script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js" type="text/javascript" charset="utf-8"></script-->
         <script src="/js/jquery-ui.min.js" type="text/javascript" charset="utf-8"></script>
 
         <!-- Bootstrap -->
+        <!--script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script-->
         <script src="/js/bootstrap.min.js"></script>
+        <!--link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css"-->
         <link rel="stylesheet" href="/css/bootstrap.min.css">
 
         <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-        <!--[if lt IE 9]-->
+        <!--[if lt IE 9]>
+        <!--script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script-->
         <script src="/js/html5shiv.js"></script>
+        <!--script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script-->
         <script src="/js/respond.min.js"></script>
         <!--[endif]-->
 
+        <!-- User styles -->
         <link rel="stylesheet" href="/css/style.css">
         @yield('headExtra')
     </head>
@@ -42,18 +50,18 @@
                     @if (Auth::check())
                         <ul class="nav navbar-nav">
                             <!-- NAVIGATION ITEMS -->
-                            <li><a href="/planets/add">Добавить планету</a></li>
+                            <li><a href="/planets/create">@lang('planet.title_add')</a></li>
                         </ul>
                     @endif
 
                     @if (!Auth::check())
                         <form class="navbar-form navbar-right" role="form" action="{{ action('UsersController@postLogin') }}" method="post">
-                            <a href="/users/login" class="btn btn-success">Войти</a>
-                            <a href="/users/register" class="btn btn-success">Регистрация</a>
+                            <a href="/users/login" class="btn btn-success">@lang('action.login')</a>
+                            <a href="/users/register" class="btn btn-success">@lang('action.register')</a>
                         </form>
                     @else
                         <form class="navbar-form navbar-right" role="form" action="/users/logout">
-                            <button class="btn btn-success">Выйти</button>
+                            <button class="btn btn-success">@lang('action.logout')</button>
                         </form>
                         <ul class="nav navbar-nav navbar-right">
                             <li><a href="#"><strong>{{ Auth::user()->username }}</strong></a></li>
