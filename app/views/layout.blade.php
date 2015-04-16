@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="{{{LanguageHelper::getCurrent()['locale']}}}">
 <head>
     <meta content="text/html; charset=utf-8" http-equiv="content-type">
     <title>@yield('title') - SBShare</title>
@@ -32,6 +32,9 @@
 
     <!-- User styles -->
     <link rel="stylesheet" href="/css/style.css">
+
+    <link rel="icon" type="image/png" href="/img/favicon.png">
+
     @yield('headExtra')
 </head>
 <body>
@@ -57,6 +60,7 @@
             <div class="navbar-form navbar-right dropdown">
                 <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1"
                         data-toggle="dropdown" aria-expanded="true">
+                    <i class="flags flag-{{LanguageHelper::getCurrent()['locale']}}"></i>
                     {{LanguageHelper::getCurrent()['name'] }}
                     <span class="caret"></span>
                 </button>
@@ -64,7 +68,10 @@
                     @foreach(LanguageHelper::all() as $language)
                         <li role="presentation">
                             <a role="menuitem" tabindex="-1"
-                               href="{{\URL::route('laguage', ['locale'=>$language['locale']]) }}">{{{$language['name']}}}</a>
+                               href="{{\URL::route('laguage', ['locale'=>$language['locale']]) }}">
+                            <i class="flags flag-{{$language['locale']}}"></i>
+                            <span>{{{$language['name']}}}</span>
+                            </a>
                         </li>
                     @endforeach
                 </ul>
@@ -89,6 +96,7 @@
         <!--/.navbar-collapse -->
     </div>
 </div>
+
 
 @yield('content')
 
