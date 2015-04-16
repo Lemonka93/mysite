@@ -9,6 +9,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+
     <!-- jQuery & jQuery UI -->
 
     <!--script src="http://code.jquery.com/jquery-1.11.0.min.js"></script-->
@@ -21,6 +22,7 @@
     <script src="/js/bootstrap.min.js"></script>
     <!--link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css"-->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <script src="/js/bootstrap-dialog.min.js"></script>
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -29,7 +31,7 @@
     <!--script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script-->
     <script src="/js/respond.min.js"></script>
     <!--[endif]-->
-
+    <script src="/js/mysite.js"></script>
     <!-- User styles -->
     <link rel="stylesheet" href="/css/style.css">
 
