@@ -2,7 +2,7 @@
 
 return array(
 
-    'added' => 'Добавить',
+    'added' => 'Создатель',
     'anonym' => 'Аноним',
     'biome' => 'Биом',
     'coordinate_x' => 'Координата X',
@@ -25,5 +25,5 @@ return array(
     'title_show' => 'Планета ":planetName"',
     'version_game' => 'Версия игры',
     'views' => 'Количество просмотров',
-
+    'image'=>'Рисунок',
 );

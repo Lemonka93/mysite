@@ -8,7 +8,8 @@ class PlanetsController extends \BaseController
      *
      * @return \Illuminate\View\View
      */
-    public function create() {
+    public function create()
+    {
         $user = Auth::user();
 
         if (!$user) {
@@ -29,7 +30,8 @@ class PlanetsController extends \BaseController
      *
      * @return $this|\Illuminate\Http\RedirectResponse|string
      */
-    public function store() {
+    public function store()
+    {
         $user = Auth::user();
 
         if (!$user) {
@@ -46,6 +48,7 @@ class PlanetsController extends \BaseController
         if (Auth::check()) {
             $data['user_id'] = Auth::user()->id;
         }
+        $data['image'] = PlanetRepository::uploadImage();
         $planet = Planet::create($data);
         return Redirect::to(action('PlanetsController@show', array($planet->id)));
     }
@@ -56,7 +59,8 @@ class PlanetsController extends \BaseController
      * @param integer $planetId
      * @return \Illuminate\View\View
      */
-    public function show($planetId) {
+    public function show($planetId)
+    {
         $planet = Planet::find($planetId);
 
         // Если такой планеты нет, то вернем пользователю ошибку 404 - Не найдено
@@ -80,7 +84,6 @@ class PlanetsController extends \BaseController
      * Delete planet
      *
      * @param integer $planetId
-
      * @return Response
      */
     public function destroy($planetId)
@@ -182,6 +185,7 @@ class PlanetsController extends \BaseController
         $planet->version = $data['version'];
         $planet->os = $data['os'];
         $planet->comment = $data['comment'];
+        $planet->image = PlanetRepository::uploadImage($planet);
         $planet->save();
 
         return Redirect::to(action('PlanetsController@show', array($planet->id)));

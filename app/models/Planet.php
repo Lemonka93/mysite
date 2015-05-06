@@ -15,6 +15,7 @@ class Planet extends Eloquent {
         'os',
         'comment',
         'user_id',
+        'image',
     );
 
     public static $sectors = array(

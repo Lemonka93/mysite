@@ -17,4 +17,5 @@ return array(
     'registration_thanks' => 'Спасибо за регистрацию',
     'remember_me' => 'Запомнить меня',
 
+
 );
