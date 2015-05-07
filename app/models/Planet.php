@@ -3,10 +3,7 @@
 class Planet extends Eloquent {
 
     protected $fillable = array(
-        'sector', //
         'level',
-        'star', //
-        'system', ///
         'planet',
         'biome',
         'x',
@@ -16,15 +13,16 @@ class Planet extends Eloquent {
         'comment',
         'user_id',
         'image',
+        'star_id',
     );
 
-    public static $sectors = array(
-        'alpha' => 'Alpha',
-        'beta'  => 'Beta',
-        'gamma' => 'Gamma',
-        'delta' => 'Delta',
-        'x'     => 'X',
-    );
+//    public static $sectors = array(
+//        'alpha' => 'Alpha',
+//        'beta'  => 'Beta',
+//        'gamma' => 'Gamma',
+//        'delta' => 'Delta',
+//        'x'     => 'X',
+//    );
 
     public static $bioms = array(
         'arid'          => 'Arid',
@@ -55,8 +53,8 @@ class Planet extends Eloquent {
     public static function getValidationRules() {
         $validation = array(
             'level'     => 'required|integer|min:1|max:10',
-            'star'      => 'required',
-            'system'    => 'required',//
+//            'star'      => 'required',
+//            'system'    => 'required',//
             'planet'    => 'required',
             'x'         => 'required|integer',
             'y'         => 'required|integer',
@@ -91,5 +89,15 @@ class Planet extends Eloquent {
 
 
         return false;
+    }
+
+    /**
+     * Return star
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+
+    public function star()
+    {
+        return $this->belongsTo('Star', 'star_id');
     }
 }
